@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="body">
-        <div id="frame">
-            <!-- <img src="./1.jpg" title="1" alt="" id="one" class="img">
-            <img src="./2.jpeg" title="2" alt="" id="two" class="img">
-            <img src="./3.jpeg" title="3" alt="" id="three" class="img">
-            <img src="./4.jpeg" title="4" alt="" id="four" class="img">
-            <img src="./5.jpeg" title="5" alt="" id="five" class="img">
-            <img src="./6.jpeg" title="6" alt="" id="six" class="img"> -->
-        </div>
-        <div id="buttons">
-            <input type="button" value="Previous" id="previous" class="btn">
-            <input type="button" value="Next" id="next" class="btn">
-        </div>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slide">
+        <img src="./1.jpg" class="slide-img" alt="" />
+        <h1>1</h1>
+      </div>
+      <div class="slide">
+        <img src="./2.jpeg" class="slide-img" alt="" />
+        <h1>2</h1>
+      </div>
+      <div class="slide">
+        <img src="./3.jpeg" class="slide-img" alt="" />
+        <h1>3</h1>
+      </div>
+      <div class="slide">
+        <img src="./4.jpeg" class="slide-img" alt="" />
+        <h1>4</h1>
+      </div>
+      <div class="slide">
+        <img src="./5.jpeg" class="slide-img" alt="" />
+        <h1>5</h1>
+      </div>
+      <div class="slide">
+        <img src="./6.jpeg" class="slide-img" alt="" />
+        <h1>6</h1>
+      </div>
     </div>
+    <div class="btn-container">
+      <button type="button" class="prevBtn">
+        prev
+      </button>
+      <button type="button" class="nextBtn">
+        next
+      </button>
+    </div>
+
+    <!-- javascript -->
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

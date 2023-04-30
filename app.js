@@ -1,60 +1,45 @@
-var images = [{
-    serialnumber: '1',
-    srcofimg : './1.jpg',
-    idofelement : 'one',
-},
-{
-    serialnumber: '2',
-    srcofimg : "./2.jpeg",
-    idofelement: "two",
-},{
-    serialnumber: '3',
-    srcofimg : "./3.jpeg",
-    idofelement: "three",
-},{
-    serialnumber: '4',
-    srcofimg : "./4.jpeg",
-    idofelement: "four",
-},{
-    serialnumber: '5',
-    srcofimg : "./5.jpeg",
-    idofelement: "five",
-},{
-    serialnumber: '6',
-    srcofimg : "./6.jpeg",
-    idofelement: "six",
-}];
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".nextBtn");
+const prevBtn = document.querySelector(".prevBtn");
+slides.forEach(function (slide, index) {
+  slide.style.left = `${index * 100}%`;
+});
+let counter = 0;
+nextBtn.addEventListener("click", function () {
+  counter++;
+  carousel();
+});
 
-var previous = document.getElementById('previous');
-// console.log(previous);
-var next = document.getElementById('next');
-// console.log(next);
+prevBtn.addEventListener("click", function () {
+  counter--;
+  carousel();
+});
 
-var frame = document.getElementById('frame');
-// console.log(frame);
-
-var cindex = 0;
-
-var totalimageslength = images.length;
-// console.log(totalimageslength);
-
-async function loadImages() {
-    for (let i = 0; i < images.length; i++) {
-      var imgcreation = document.createElement('img');
-      await imgcreation.setAttribute('src', images[i].srcofimg);
-      await imgcreation.setAttribute('title', images[i].serialnumber);
-      await imgcreation.setAttribute('alt', images[i].idofelement);
-      await imgcreation.setAttribute('id', images[i].idofelement);
-      await imgcreation.setAttribute('class', 'img');
-      
-    await frame.appendChild(imgcreation);
-      
-      console.log(`<img src="${images[i].srcofimg}" title="${images[i].serialnumber}" alt="" id="${images[i].idofelement}" class="img">`)
-    }
+function carousel() {
+  // working with slides
+  // if (counter === slides.length) {
+  //   counter = 0;
+  // }
+  // if (counter < 0) {
+  //   counter = slides.length - 1;
+  // }
+  // working with buttons
+  if (counter < 0) {
+    counter = 0;
   }
-  
-  loadImages();
+  if (counter < slides.length - 1) {
+    nextBtn.style.display = "block";
+  } else {
+    nextBtn.style.display = "none";
+  }
+  if (counter > 0) {
+    prevBtn.style.display = "block";
+  } else {
+    prevBtn.style.display = "none";
+  }
+  slides.forEach(function (slide) {
+    slide.style.transform = `translateX(-${counter * 100}%)`;
+  });
+}
 
-  
-  
-  
+prevBtn.style.display = "none";
